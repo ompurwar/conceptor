@@ -1,4 +1,9 @@
-
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/conceptor.git/'
+  }
+} : {}
 module.exports = {
   mode: 'spa',
   /*
@@ -14,6 +19,8 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/ooy7flt.css' }
+    ],
+    script:[{src:"https://kit.fontawesome.com/75cffa3c54.js"}
     ]
   },
   /*
@@ -64,5 +71,7 @@ module.exports = {
     */
     extend(config, ctx) {
     }
-  }
+  },
+  ...routerBase,
+  
 }

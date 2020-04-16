@@ -1,9 +1,11 @@
 <template>
-  <div class="body">
-    <topnav></topnav>
+  <div class="body px-md-8">
+
     <nuxt />
+
   </div>
 </template>
+   
 
 <style>
 html {
@@ -16,10 +18,17 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-
 }
-.body{
-  background: #35495e;
+
+@media (min-width: 768px) {
+  .body {
+    padding-left: 13rem !important;
+    padding-right: 13rem !important;
+  }
+}
+
+.body {
+  background: white;
 }
 *,
 *:before,
@@ -60,6 +69,5 @@ html {
 
 <script>
 import Vue from "vue";
-import Topnav from "../components/topnav";
-export default Vue.extend({ components: { Topnav } });
+export default Vue.extend({ components: {} });
 </script>
